@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Website Frame - Tugas 7.2</title>
+  <style>
+    :root{
+      --header:#f0805a;
+      --left:#8a2be2;
+      --right:#87ceeb;
+      --content:#c0d6b6;
+      --footer:#2b59a6;
+      --gap:6px;
+      font-family: Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;padding:0;}
+    .grid{
+      display:grid;
+      grid-template-columns: 200px 1fr 180px;
+      grid-template-rows: 90px 1fr 50px;
+      gap: var(--gap);
+      height:100vh;
+      padding:10px;
+      box-sizing:border-box;
+      background:#fff;
+    }
+    header{grid-column:1/4;background:var(--header);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav.left{grid-column:1/2;background:var(--left);padding:10px;box-sizing:border-box;}
+    main{grid-column:2/3;background:var(--content);display:flex;align-items:center;justify-content:center;padding:0;box-sizing:border-box;}
+    nav.right{grid-column:3/4;background:var(--right);padding:10px;box-sizing:border-box;}
+    footer{grid-column:1/4;background:var(--footer);display:flex;align-items:center;justify-content:center;color:#fff}
+    /* make iframes fill their areas */
+    iframe{width:100%;height:100%;border:0;background:white}
+    /* menu styling inside left/right nav (these are regular links that target mainFrame) */
+    .menu a{display:block;color:#fff;text-decoration:none;padding:8px 6px;margin:6px 0;background:rgba(0,0,0,0.06);border-radius:4px}
+    .menu a:hover{opacity:0.9}
+    .small-note{font-size:12px;color:#222;text-align:center;padding:12px}
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <header>
+      <h1>Data Roni</h1>
+    </header>
+
+    <nav class="left">
+      <h3 style="color:white;margin:0 0 10px;">MENU KIRI</h3>
+      <div class="menu">
+        <a href="home.html" target="mainFrame">Home</a>
+        <a href="biodata.html" target="mainFrame">Biodata</a>
+        <a href="hobby.html" target="mainFrame">Hobby</a>
+        <a href="sekolah.html" target="mainFrame">Sekolah</a>
+        <a href="jurusan.html" target="mainFrame">Jurusan</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- main content frame (default loads home.html) -->
+      <iframe name="mainFrame" src="home.html" title="Konten Utama"></iframe>
+    </main>
+
+    <nav class="right">
+      <h3 style="margin-top:0">MENU KANAN</h3>
+      <div class="menu">
+        <a href="link1.html" target="mainFrame">Alamat</a>
+        <a href="link2.html" target="mainFrame">Makanan</a>
+        <a href="link3.html" target="mainFrame">Kontak</a>
+      </div>
+    </nav>
+
+    <footer>
+      Program ini dibuat oleh: Muhammad Saroni
+    </footer>
+  </div>
+</body>
+</html>
